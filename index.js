@@ -1,0 +1,12 @@
+import{S as u,i as a}from"./assets/vendor-5ObWk2rO.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const n of t.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&i(n)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function i(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}})();const f="35898178-628df3d5ceb1661a68afdf1ae",m="https://pixabay.com/api/";function d(s){const r=new URLSearchParams({key:f,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0});return fetch(`${m}?${r}`).then(o=>{if(!o.ok)throw new Error(o.status);return o.json()})}function p(s){return s.map(({webformatURL:r,largeImageURL:o,tags:i,likes:e,views:t,comments:n,downloads:l})=>`<li class="gallery-item">
+  <a class="gallery-link" href="${o}">
+    <img class="gallery-image" src="${r}" alt="${i}" />
+    <div class="info">
+         <p class="info-item"><b>Likes</b> ${e}</p>
+          <p class="info-item"><b>Views</b> ${t}</p>
+          <p class="info-item"><b>Comments</b> ${n}</p>
+          <p class="info-item"><b>Downloads</b> ${l}</p>
+          </div>
+  </a>
+</li>`).join("")}const g=new u(".gallery a",{captionSelector:"img",captionsData:"alt",captionPosition:"bottom",captionDelay:250,enableKeyboard:!0,animationSlide:!0,overlay:!0}),h=document.querySelector(".search-form"),c=document.querySelector(".gallery");function y(){c.innerHTML='<div class="loader"></div>'}h.addEventListener("submit",b);function b(s){s.preventDefault();const r=s.currentTarget,o=r.elements.query.value.trim();if(y(),o===""){r.reset(),a.warning({title:"Warning",message:"You should enter something to start the search!"});return}d(o).then(i=>{if(i.total===0){c.innerHTML="",a.warning({title:"Warning",message:"Sorry, there are no images matching your search query. Please try again!"});return}c.innerHTML=p(i.hits),a.success({title:"OK",message:`Hooray! We found ${i.totalHits} photos of ${o.trim()}.`}),g.refresh()}).catch(i=>a.error({title:"Error",message:i.message})).finally(()=>{r.reset()})}
+//# sourceMappingURL=index.js.map
