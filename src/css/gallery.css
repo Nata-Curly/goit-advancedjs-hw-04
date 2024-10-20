@@ -1,0 +1,87 @@
+.search-form {
+  display: flex;
+  gap: 8px;
+  font-family: Montserrat;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+
+input {
+  font-family: Montserrat;
+  width: 272px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  color: #808080;
+  padding: 8px 15px;
+}
+input:hover,
+input:focus,
+input:active {
+  border-color: #000;
+}
+
+button {
+  font-family: Montserrat;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.64px;
+  color: white;
+  background-color: #4e75ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover,
+button:focus,
+button:active {
+  background-color: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-item {
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #808080;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+  width: 360px;
+  height: 152px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 350ms ease;
+}
+
+a:hover .gallery-image {
+  transform: scale(1.02);
+}
+.info-item {
+  color: rgb(10, 3, 119);
+  text-align: center;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  gap: 5px;
+  padding: 0 5px;
+}
