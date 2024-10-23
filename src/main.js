@@ -30,8 +30,6 @@ const params = {
   query: '',
 };
 
-console.log(params);
-
 function loader() {
   gallery.innerHTML = '<div class="loader"></div>';
 }
@@ -63,7 +61,7 @@ async function handleSearch(event) {
 
   try {
     const data = await getPixabayPhotos(params);
-    console.log(data);
+
     if (data.total === 0) {
       gallery.innerHTML = '';
       iziToast.warning({
@@ -75,7 +73,6 @@ async function handleSearch(event) {
     }
 
     params.maxPage = Math.ceil(data.totalHits / params.per_page);
-    console.log(params);
 
     gallery.innerHTML = createGalleryCard(data.hits);
     iziToast.success({
