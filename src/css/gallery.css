@@ -5,7 +5,7 @@
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 16px;
+  /* margin-bottom: 32px; */
 }
 
 input {
@@ -46,11 +46,26 @@ button:active {
   background-color: #6c8cff;
 }
 
+.load-more-container {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more.is-hidden {
+  display: none;
+}
+
+.load-more:disabled {
+  background-color: #c1c1c1;
+  cursor: not-allowed;
+}
+
 .gallery {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 32px 0;
 }
 
 .gallery-item {
